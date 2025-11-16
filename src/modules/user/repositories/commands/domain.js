@@ -34,7 +34,9 @@ class User {
       commonHelper.log(['ERROR'],'password invalid');
       return wrapper.error(new UnauthorizedError('password invalid!'));
     }
-
+    delete user.data[0].password;
+    delete user.data[0].mobile_number;
+    delete user.data[0].email;
     const accessToken = await jwt.generateToken({sub: user.data[0].userId, metadata: user.data[0]});
     return wrapper.data({
       accessToken
