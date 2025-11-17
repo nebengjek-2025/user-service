@@ -106,13 +106,13 @@ class Command {
 
   async insertOneWallet(document){
     // check if wallet exist
-    const findQuery = `SELECT id FROM wallet WHERE user_id = ? LIMIT 1`;
+    const findQuery = `SELECT id FROM wallets WHERE user_id = ? LIMIT 1`;
     const findResult = await this.db.preparedQuery(findQuery, [document.userId]);
     if (!findResult.err && findResult.data.length > 0){
       // wallet exist
       return {data: 'wallet exist',err: null};
     }
-    const sql = `INSERT INTO wallet (user_id, balance, last_updated) VALUES (?, ?, ?)`;
+    const sql = `INSERT INTO wallets (user_id, balance, last_updated) VALUES (?, ?, ?)`;
     const now = new Date();
     const mysqlTimestamp = now.toISOString().slice(0, 19).replace('T', ' ');
 
