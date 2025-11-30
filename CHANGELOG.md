@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/nebengjek-2025/user-service/compare/v1.0.1...v1.0.2) (2025-11-30)
+
+
+### Bug Fixes
+
+* dockerfile ([2fdd8a0](https://github.com/nebengjek-2025/user-service/commit/2fdd8a00aaf5fabc75cba1a78541488cbd43de0f))
+
 ### 1.0.1 (2025-11-30)
 
 
