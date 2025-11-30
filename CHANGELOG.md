@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.1 (2025-11-30)
+
+
+### Bug Fixes
+
+* adjust wallet ([ca2138b](https://github.com/nebengjek-2025/user-service/commit/ca2138ba584e4f0c0473519a0801eb5f2be37195))
+* dockerfile ([1572b5d](https://github.com/nebengjek-2025/user-service/commit/1572b5d6ca2ae1b8406220e776635c1c1b948d70))
+* jwt adjustment metadata ([a12bf86](https://github.com/nebengjek-2025/user-service/commit/a12bf8657a868f74b806d721f41b3bb58fc47931))
+
 ### [1.1.3](https://github.com/nebengjek/user-service/compare/v1.1.2...v1.1.3) (2024-11-25)
 
 
