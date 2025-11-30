@@ -1,4 +1,4 @@
-FROM node:20-alpine AS builder
+FROM node:20.11-alpine AS builder
 
 RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
 
@@ -12,12 +12,12 @@ USER root
 RUN chown -R nonroot:nonroot /usr/src/app
 USER nonroot
 
-RUN npm install --ignore-scripts --omit=dev && npm cache clean --force
+RUN npm install --omit=dev && npm cache clean --force
 
 COPY --chown=nonroot:nonroot src/ ./src/
 COPY --chown=nonroot:nonroot index.js ./
 
-FROM node:20-alpine
+FROM node:20.11-alpine
 
 RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
 
