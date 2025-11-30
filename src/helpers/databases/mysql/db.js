@@ -1,4 +1,5 @@
 const commonHelper = require('all-in-one');
+
 const wrapper = commonHelper.Wrapper;
 const pool = require('./connection');
 
@@ -7,7 +8,7 @@ class DB {
     this.config = config;
   }
 
-  errorMessage(code) {
+  static errorMessage(code) {
     switch(code) {
     case 'PROTOCOL_CONNECTION_LOST':
       return 'Database connection was closed.';
@@ -15,6 +16,7 @@ class DB {
       return 'Database has too many connections.';
     case 'ECONNREFUSED':
       return 'Database connection was refused.';
+    default:
     }
   }
 
@@ -23,12 +25,11 @@ class DB {
     if(!db){
       db = await pool.createConnectionPool(this.config);
     }
-    const recordset = () => {
-      return new Promise((resolve, reject) => {
+    const recordset = () => new Promise((resolve, reject) => {
         db.getConnection((error, connection) => {
           if (error) {
             connection.release();
-            return reject(wrapper.error(this.errorMessage(error.code)));
+            return reject(wrapper.error(DB.errorMessage(error.code)));
           }
           connection.query(statement, (err, res) => {
             if (err) {
@@ -40,12 +41,7 @@ class DB {
           });
         });
       });
-    };
-    return recordset().then(res => {
-      return res;
-    }).catch(err => {
-      return err;
-    });
+    return recordset().then(res => res).catch(err => err);
   }
 
   async preparedQuery(statement, parameter) {
@@ -53,12 +49,11 @@ class DB {
     if(!db){
       db = await pool.createConnectionPool(this.config);
     }
-    const recordset = () => {
-      return new Promise((resolve, reject) => {
+    const recordset = () => new Promise((resolve, reject) => {
         db.getConnection((error, connection) => {
           if (error) {
             connection.release();
-            return reject(wrapper.error(this.errorMessage(error.code)));
+            return reject(wrapper.error(DB.errorMessage(error.code)));
           }
           connection.query(statement, parameter, (err, res) => {
             if (err) {
@@ -70,12 +65,7 @@ class DB {
           });
         });
       });
-    };
-    return recordset().then(res => {
-      return res;
-    }).catch(err => {
-      return err;
-    });
+    return recordset().then(res => res).catch(err => err);
   }
 
 }

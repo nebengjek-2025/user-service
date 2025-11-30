@@ -11,9 +11,7 @@ const { ERROR:httpError, SUCCESS:http } = commonHelper;
 const loginUser = async (req, res) => {
   const payload = req.body;
   const validatePayload = commonHelper.isValidPayload(payload, commandModel.login);
-  const postRequest = async (result) => {
-    return result.err ? result : commandHandler.loginUser(result.data);
-  };
+  const postRequest = async (result) => result.err ? result : commandHandler.loginUser(result.data);
 
   const sendResponse = async (result) => {
     (result.err)
@@ -37,9 +35,7 @@ const getUser = async (req, res) => {
 const registerUser = async (req, res) => {
   const payload = req.body;
   const validatePayload = commonHelper.isValidPayload(payload, commandModel.register);
-  const postRequest = async (result) => {
-    return result.err ? result : commandHandler.registerUser(result.data);
-  };
+  const postRequest = async (result) => result.err ? result : commandHandler.registerUser(result.data);
   const sendResponse = async (result) => {
     (result.err)
       ? wrapper.response(res, 'fail', result, 'Register User', httpError.CONFLICT)

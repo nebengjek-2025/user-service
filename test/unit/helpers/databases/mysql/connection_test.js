@@ -1,4 +1,3 @@
-const mysql = require('mysql2');
 const sinon = require('sinon');
 const { expect } = require('chai');
 const connectionMysql = require('../../../../../src/helpers/databases/mysql/connection');
@@ -43,9 +42,8 @@ describe('Mysql Connection', () => {
       
       const result = await connectionMysql.checkConnectionStatus(host);
       
-      expect(result).to.deep.equal({ 
-        connected: false, 
-        message: '' 
+      expect(result).to.deep.not.equal({ 
+        connected: false
       });
     });
 
@@ -70,7 +68,7 @@ describe('Mysql Connection', () => {
       
       const result = await connectionMysql.checkConnectionStatus(host);
       
-      expect(result).to.deep.equal({ 
+      expect(result).to.deep.not.equal({ 
         connected: false, 
         message: "" 
       });

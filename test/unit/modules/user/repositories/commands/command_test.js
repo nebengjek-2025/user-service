@@ -7,7 +7,6 @@ describe('User-command', () => {
   let sandbox;
   let db;
   let command;
-  let clock;
 
   // fixed timestamp -> 2020-01-01T00:00:00.000Z
   const FIXED_TS_ISO = '2020-01-01T00:00:00.000Z';
@@ -16,7 +15,7 @@ describe('User-command', () => {
   beforeEach(() => {
     sandbox = sinon.createSandbox();
     // freeze time so mysqlTimestamp is deterministic
-    clock = sandbox.useFakeTimers(new Date(FIXED_TS_ISO).getTime());
+    sandbox.useFakeTimers(new Date(FIXED_TS_ISO).getTime());
     db = {
       preparedQuery: sandbox.stub()
     };

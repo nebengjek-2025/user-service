@@ -112,7 +112,7 @@ describe('User-domain', () => {
       commonHelper.Wrapper.data.withArgs().returns(wrapperSuccess);
 
       // use a copy of payload so domain.delete doesn't mutate shared object in other tests
-      const input = Object.assign({}, payload);
+      const input = { ...payload};
       const res = await user.registerUser(input);
 
       assert.deepEqual(res, wrapperSuccess);
@@ -134,7 +134,7 @@ describe('User-domain', () => {
       sandbox.stub(query.prototype, 'findOneUser').resolves({ data: { email: 'email@gmail.com' } });
 
       const user = new User(db);
-      const res = await user.registerUser(Object.assign({}, payload));
+      const res = await user.registerUser({ ...payload});
 
       assert.notEqual(res.err, null);
       assert(commonHelper.log.called);
@@ -150,7 +150,7 @@ describe('User-domain', () => {
       sandbox.stub(command.prototype, 'insertOneUser').resolves({ data: null, err: 'DBERR' });
 
       const user = new User(db);
-      const res = await user.registerUser(Object.assign({}, payload));
+      const res = await user.registerUser({ ...payload});
 
       assert.notEqual(res.err, null);
       assert(commonHelper.log.called);

@@ -65,7 +65,7 @@ class User {
       commonHelper.log(['ERROR'],{ctx, error, message:'failed to register user'});
       return wrapper.error(new Error('failed to register user'));
     }
-    return wrapper.data();
+    return wrapper.data(result);
   }
 }
 

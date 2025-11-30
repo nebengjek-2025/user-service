@@ -96,7 +96,9 @@ describe('healthCheck', () => {
       expect(logStub.getCall(retryCallIndex)).to.not.be.null;
       expect(logStub.getCall(retryCallIndex).args[0]).to.equal('Retrying in 5 seconds...');
       
+      /* eslint-disable no-await-in-loop */
       await clock.tickAsync(RETRY_INTERVAL);
+      /* eslint-enable no-await-in-loop */
     }
 
     await healthCheckPromise;

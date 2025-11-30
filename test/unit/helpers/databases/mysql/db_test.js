@@ -1,20 +1,21 @@
-const mysqlHelper = require('../../../../../src/helpers/databases/mysql/db');
-const mysqlConnection = require('../../../../../src/helpers/databases/mysql/connection');
-const config = require('../../../../../src/infra');
 const sinon = require('sinon');
 const { expect } = require('chai');
+const { before, after, beforeEach, afterEach } = require('mocha');
+const MysqlHelper = require('../../../../../src/helpers/databases/mysql/db');
+const mysqlConnection = require('../../../../../src/helpers/databases/mysql/connection');
+const config = require('../../../../../src/infra');
 
 describe('Mysql DB', () => {
   let db = null;
   let stubConnection;
   before(() => {
-    db = new mysqlHelper(config.get('/mysqlConfig'));
+    db = new MysqlHelper(config.get('/mysqlConfig'));
   });
   after(() => {
     db = null;
   });
   beforeEach(() => {
-    let expectedResultGetConn = {
+    const expectedResultGetConn = {
       release: sinon.spy(),
       query : sinon.stub().yields(null, {
         res : true
@@ -39,13 +40,13 @@ describe('Mysql DB', () => {
     });
     it('should create a new conn', async () => {
       stubConnection.resolves({});
-      let expectedResultGetConn = {
+      const expectedResultGetConn = {
         release: sinon.spy(),
         query : sinon.stub().yields(null, {
           res : true
         })
       };
-      let stubCreateConn = sinon.stub(mysqlConnection, 'createConnectionPool');
+      const stubCreateConn = sinon.stub(mysqlConnection, 'createConnectionPool');
       stubCreateConn.resolves({
         getConnection: sinon.stub().yields(null, expectedResultGetConn)
       });
@@ -116,13 +117,13 @@ describe('Mysql DB', () => {
     });
     it('should create a new conn', async () => {
       stubConnection.resolves({});
-      let expectedResultGetConn = {
+      const expectedResultGetConn = {
         release: sinon.spy(),
         query : sinon.stub().yields(null, {
           res : true
         })
       };
-      let stubCreateConn = sinon.stub(mysqlConnection, 'createConnectionPool');
+      const stubCreateConn = sinon.stub(mysqlConnection, 'createConnectionPool');
       stubCreateConn.resolves({
         getConnection: sinon.stub().yields(null, expectedResultGetConn)
       });

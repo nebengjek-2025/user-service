@@ -64,7 +64,7 @@ class User {
       verify: true,
       completed: false
     });    
-    return wrapper.data();
+    return wrapper.data(result);
   }
   
   async updateDataDriver(userId,payload) {

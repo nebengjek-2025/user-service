@@ -6,11 +6,10 @@ describe('Command', () => {
   let sandbox;
   let db;
   let command;
-  let clock;
 
   beforeEach(() => {
     sandbox = sinon.createSandbox();
-    clock = sandbox.useFakeTimers(new Date('2024-01-01').getTime());
+    sandbox.useFakeTimers(new Date('2024-01-01').getTime());
     db = {
       preparedQuery: sandbox.stub()
     };

@@ -12,9 +12,7 @@ const { ERROR:httpError, SUCCESS:http } = commonHelper;
 const loginDriver = async (req, res) => {
   const payload = req.body;
   const validatePayload = commonHelper.isValidPayload(payload, commandModel.login);
-  const postRequest = async (result) => {
-    return result.err ? result : commandHandler.loginDriver(result.data);
-  };
+  const postRequest = async (result) => result.err ? result : commandHandler.loginDriver(result.data);
 
   const sendResponse = async (result) => {
     (result.err)
@@ -38,9 +36,7 @@ const getDriver = async (req, res) => {
 const registerDriver = async (req, res) => {
   const payload = req.body;
   const validatePayload = commonHelper.isValidPayload(payload, commandModel.register);
-  const postRequest = async (result) => {
-    return result.err ? result : commandHandler.registerDriver(result.data);
-  };
+  const postRequest = async (result) => result.err ? result : commandHandler.registerDriver(result.data);
   const sendResponse = async (result) => {
     (result.err)
       ? wrapper.response(res, 'fail', result, 'Register User', httpError.CONFLICT)
@@ -55,9 +51,7 @@ const updateDataDriver = async (req, res) => {
   req.body.email = _.isEmpty(email) ? req.body.email : email
   const payload = req.body;
   const validatePayload = commonHelper.isValidPayload(payload, commandModel.driver);
-  const postRequest = async (result) => {
-    return result.err ? result : commandHandler.updateDataDriver(userId,result.data);
-  };
+  const postRequest = async (result) => result.err ? result : commandHandler.updateDataDriver(userId,result.data);
   const sendResponse = async (result) => {
     (result.err)
       ? wrapper.response(res, 'fail', result, 'Update User', httpError.CONFLICT)

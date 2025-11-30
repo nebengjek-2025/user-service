@@ -4,8 +4,8 @@ const cors = require('cors');
 const helmet = require('helmet');
 const correlator = require('express-correlation-id');
 const healtCheck = require('./health_check');
-const config = require('../infra');
 const routes = require('../routes');
+
 class AppServer {
 
   constructor() {
