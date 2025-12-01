@@ -1,9 +1,9 @@
 # User Service
 This project written in javascript using ExpressJS based on a clean architecture that represents DDD and CQRS patterns. 
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nebengjek_user-service&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nebengjek_user-service)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=nebengjek_user-service&metric=coverage)](https://sonarcloud.io/summary/new_code?id=nebengjek_user-service)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=nebengjek_user-service&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=nebengjek_user-service)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nebengjek-2025_user-service&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nebengjek-2025_user-service)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=nebengjek-2025_user-service&metric=coverage)](https://sonarcloud.io/summary/new_code?id=nebengjek-2025_user-service)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=nebengjek-2025_user-service&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=nebengjek-2025_user-service)
 
 ## Project Structure
 - [ ] `src/`
@@ -29,7 +29,7 @@ What things you need to install to run this project:
 ```
 - Node.js v20
 - Node Package Manager v10
-- MongoDB
+- MySQL
 - Kafka
 - RedisDB
 ```
