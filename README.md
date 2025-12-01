@@ -1,4 +1,3 @@
-```markdown
 # User Service
 This project written in javascript using ExpressJS based on a clean architecture that represents DDD and CQRS patterns. 
 
@@ -160,10 +159,3 @@ NebengJek is a ride-sharing app that connects users with shared rides, system is
 * [ExpressJS] The rest framework used
 * [Npm] - Dependency Management
 * [Docker] - Container Management
-```
-
-**Perubahan utama:**
-1. ✅ Tambah `.env.example` lengkap dengan values dari Docker Compose
-2. ✅ Update Quick Start dengan workflow start infra dulu
-3. ✅ Tambah Development Workflow section
-4. ✅ Tambah Troubleshooting sesuai konteks Docker Compose
