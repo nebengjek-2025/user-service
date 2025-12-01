@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/nebengjek-2025/user-service/compare/v1.0.2...v1.0.3) (2025-12-01)
+
+
+### Bug Fixes
+
+* missing config mysql ([3c30ac2](https://github.com/nebengjek-2025/user-service/commit/3c30ac22d77ae7d5ecdce39f2948e7a27fdcb263))
+* update readme ([4e05bf0](https://github.com/nebengjek-2025/user-service/commit/4e05bf07596e838785cb120a9ffbbfd2cd1dc451))
+
 ### [1.0.2](https://github.com/nebengjek-2025/user-service/compare/v1.0.1...v1.0.2) (2025-11-30)
 
 
